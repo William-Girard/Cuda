@@ -7,6 +7,8 @@ body{
     font-family: "Titillium Web";
     overflow-x:hidden;
 }
+
+
 .welcome{
     background-color: #87509c;
 }
@@ -72,11 +74,16 @@ a{
     margin: 5px 10px;
     list-style: none;
 }
+.reseaux div ul li:hover{
+    color: #30bae7;
+    cursor: pointer;
+}
 h1{
     font-family: "Titillium Web", 'Times New Roman', Times, serif;
     font-weight: bold;
     color: white;
     text-align: center;
+    font-size:42px ;
 }
 h2{
     font-family: "Titillium Web", 'Times New Roman', Times, serif;
@@ -90,9 +97,20 @@ h3{
     font-family: "Titillium Web", 'Times New Roman', Times, serif;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 20px;
 }
-
+p{
+    font-size:16px;
+}
+.little{
+    font-size: 14px;
+}
+.noMarginTop{
+    margin-top: 0;
+}
+.noMarginBot{
+    margin-bottom: 0;
+}
 .italic{
     font-family: "Titillium Web", 'Times New Roman', Times, serif;;
     font-style: italic;
@@ -100,7 +118,7 @@ h3{
 .yellow{
     font-family: "Titillium Web";
     color: #facd96;
-    line-height: 0px;
+    line-height: 12px;
 }
 .blue{
     color: #30bae7;
@@ -130,12 +148,15 @@ h3{
 
 .center{
     text-align: center;
+    margin: auto;
+    width: 80%;
 }
 .absoluteCenter{
     position: absolute;
     top: 50%;
     left:50%;
     transform: translate(-50%, -50%);
+    width: 75%;
 }
 
 hr{
@@ -151,6 +172,11 @@ input{
     outline:0;
     padding: 20px 20px;
     box-sizing: border-box;
+    color: white;
+}
+input::placeholder{
+    font-family: "TitilliumWeb";
+    color: white;
 }
 textarea{
     box-shadow:none;
@@ -158,6 +184,11 @@ textarea{
     outline:0;
     padding: 20px 20px;
     box-sizing: border-box;
+    color: white;
+}
+textarea::placeholder{
+    font-family: "TitilliumWeb";
+    color: white;
 }
 form .input{
     background-color: #273a71;
@@ -196,15 +227,12 @@ form .input{
     margin: 20px 20% 20px;
 }
 @media screen and (max-width:520px) {
-    .row{
-        display: block;
-        margin-bottom: 25px;
-    }
+    
     #email{
         margin-top:25px;
         margin-left:0;
     }
-
+    
 }
 
 /* grid pour les columns */
@@ -223,20 +251,22 @@ form .input{
 /*grid pour les lignes + columns*/
 .wrapper2 {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
     grid-auto-rows: minmax(25px, auto);
-    margin: 60px 50px 0 50px;
+    margin: 60px 50px 0px 50px;
     padding-bottom: 50px;
 }
 
 
 .textTesti{
     margin-bottom: 20px;
+    display: flex;
 }
 .petit{
     font-family: "TitilliumWeb-Light", 'Times New Roman', Times, serif;
-    font-size: 12px;
+    font-size: 16px;
     padding: 0 10px 0 10px;
 }
 .circle{
@@ -251,14 +281,29 @@ form .input{
     height: 80px;
     border-radius: 40px;
     background: #878787;
-    margin: auto;
+}
+.one2{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 20px 0 0;
+
 }
 
 
 
 
-
 @media screen and (max-width:800px){
+    .textTesti{
+        display: block;
+    }
+    .one2{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    h1{
+        font-size: 34px;
+    }
     .wrapper{
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(1,1fr);
@@ -272,7 +317,7 @@ form .input{
     {
         display: block;
         position: relative;
-        top: 25px;
+        top: 18px;
         left: 25px;
         
         z-index: 1;
@@ -412,6 +457,9 @@ form .input{
     }
 }
 @media screen and (max-width:620px){
+    h1{
+        font-size: 24px;
+    }
     .wrapper{
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(1,1fr);
@@ -420,5 +468,89 @@ form .input{
     .marginTop{
         margin-top: 30px;
     }
-    
+    .row{
+        display: block;
+        margin-bottom: 25px;
+        margin: 20px 10% 20px;
+    }
+    #email{
+        margin:20px 0 0 0;
+    }
+}
+
+/* css pour progress bar cercle*/
+
+.circle_percent {
+    font-size:160px; 
+    width:1em; 
+    height:1em; 
+    position: relative; 
+    background: #eee; 
+    border-radius:50%; 
+    overflow:hidden; 
+    display:inline-block;
+}
+.circle_inner {
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    width: 1em; 
+    height: 1em; 
+    clip:rect(0 1em 1em .5em);
+}
+.round_per {
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    width: 1em; 
+    height: 1em;  
+    clip:rect(0 1em 1em .5em); 
+    transform:rotate(180deg); 
+    transition:1.05s;
+}
+
+
+.percent_more .circle_inner {
+    clip:rect(0 .5em 1em 0em);
+}
+
+.percent_more:after {
+    position: absolute; 
+    left: .5em; 
+    top:0em; 
+    right: 0; 
+    bottom: 0;  
+    content:'';
+}
+.bleu .round_per, .percent_more.bleu:after {
+    background: #30bae7;
+}
+.rose .round_per, .percent_more.rose:after {
+    background: #d74680;
+}
+.bleuClair .round_per, .percent_more.bleuClair:after {
+    background: #15c7a8;
+}
+
+.orange .round_per, .percent_more.orange:after {
+    background: #eb7d4b;
+}
+.circle_inbox {
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+    background: #fff; 
+    z-index:3; 
+    border-radius: 50%;
+}
+.percent_text {
+    position: absolute; 
+    font-size: 36px; 
+    left: 50%; 
+    top: 50%; 
+    transform: 
+    translate(-50%,-50%); 
+    z-index: 3;
 }
